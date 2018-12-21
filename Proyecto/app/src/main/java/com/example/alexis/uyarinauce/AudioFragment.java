@@ -12,8 +12,10 @@ import android.media.AudioTrack;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.media.audiofx.AcousticEchoCanceler;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Process;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -58,9 +60,13 @@ public class AudioFragment extends Fragment {
         btnHablar = (Button) vista.findViewById(R.id.btnHablar);
         btnEscuchar = (Button) vista.findViewById(R.id.btnEscuchar);
 
+        btnHablar.setEnabled(true);
+        btnEscuchar.setEnabled(false);
         btnHablar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btnHablar.setEnabled(false);
+                btnEscuchar.setEnabled(true);
                 reproducir();
             }
         });
@@ -68,7 +74,11 @@ public class AudioFragment extends Fragment {
         btnEscuchar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isRecording = true){
+                if(isRecording == true){
+                    btnHablar.setEnabled(true);
+                    btnEscuchar.setEnabled(false);
+                    System.out.println("fiiiiiiiin");
+                    isRecording=false;
                     arec.stop();
                     atrack.stop();
                 }else {
@@ -84,13 +94,20 @@ public class AudioFragment extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                isRecording = true;
-                android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_URGENT_AUDIO);
-                int buffersize = AudioRecord.getMinBufferSize(44100, AudioFormat.CHANNEL_IN_STEREO, AudioFormat.ENCODING_PCM_16BIT);
-                arec = new AudioRecord(MediaRecorder.AudioSource.MIC, 44100, AudioFormat.CHANNEL_IN_STEREO, AudioFormat.ENCODING_PCM_16BIT, buffersize);
-               
+                if(ns){
+                    System.out.println("holllllllaaaaaaa");
+                    localAudioManager.setParameters("noise_suppression=off");
 
-                atrack = new AudioTrack(AudioManager.STREAM_VOICE_CALL, 44100, AudioFormat.CHANNEL_OUT_STEREO, AudioFormat.ENCODING_PCM_16BIT, buffersize, AudioTrack.MODE_STREAM);
+                    ns=!ns;
+                }
+                isRecording = true;
+                Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_AUDIO);
+                //CHANNEL_IN_STEREO
+                int buffersize = AudioRecord.getMinBufferSize(44100, AudioFormat.CHANNEL_IN_STEREO, AudioFormat.ENCODING_PCM_16BIT);
+                arec = new AudioRecord(MediaRecorder.AudioSource.MIC, 44100, AudioFormat.CHANNEL_CONFIGURATION_MONO, AudioFormat.ENCODING_PCM_16BIT, buffersize);
+
+                //STREAM_VOICE_CALL
+                atrack = new AudioTrack(AudioManager.STREAM_MUSIC, 44100, AudioFormat.CHANNEL_CONFIGURATION_MONO, AudioFormat.ENCODING_PCM_16BIT, buffersize, AudioTrack.MODE_STREAM);
                 atrack.setPlaybackRate(44100);
                 byte[] buffer = new byte[buffersize];
                 arec.startRecording();
