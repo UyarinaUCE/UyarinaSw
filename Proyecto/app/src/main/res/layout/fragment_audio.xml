@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AudioFragment"
-    android:background="@drawable/primera">
+    android:background="@drawable/ayuda">
 
 
     <Button
         android:id="@+id/btnHablar"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
@@ -25,8 +25,8 @@
 
     <Button
         android:id="@+id/btnEscuchar"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:layout_marginTop="302dp"
         android:layout_marginEnd="32dp"

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Acerca"
+    android:background="@drawable/portada">
+
+    <ImageButton
+        android:id="@+id/img"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="75dp"
+        android:background="@drawable/logo" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grupo de investigación"
+        android:textSize="25dp"
+        android:layout_marginTop="130dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ing. Diego Veintimilla"
+        android:layout_marginTop="170dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ing. Mauricio Fuentes"
+        android:layout_marginTop="210dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ing. Giovanny Moncayo"
+        android:layout_marginTop="190dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grupo de desarrollo"
+        android:textSize="25dp"
+        android:layout_marginTop="400dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alexis Chalco           mail: apchalco@uce.edu.ec"
+        android:layout_marginTop="440dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deysi Fernandez     mail: dmfernandez@uce.edu.ec"
+        android:layout_marginTop="460dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jhonatan Paucar    mail: jmpaucar@uce.edu.ec"
+        android:layout_marginTop="480dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="versión 2.1.0"
+        android:layout_marginTop="530dp"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"/>
+</FrameLayout>

@@ -1,6 +1,7 @@
 package com.example.alexis.uyarinauce;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -78,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            return true;
+            Intent intent = new Intent(MainActivity.this,Acerca.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -123,11 +125,11 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    AudioFragment audioFragment = new AudioFragment();
-                    return audioFragment;
-                case 1:
                     TextFragment textFragment = new TextFragment();
                     return textFragment;
+                case 1:
+                    AudioFragment audioFragment = new AudioFragment();
+                    return audioFragment;
                 case 2:
                     SoundFragment soundFragment = new SoundFragment();
                     return soundFragment;
